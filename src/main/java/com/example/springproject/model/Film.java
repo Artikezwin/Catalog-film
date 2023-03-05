@@ -20,4 +20,13 @@ public class Film {
     private GenreEnum genre;
     private Integer rating;
 
+    public Film(String title, GenreEnum genre, Integer rating) {
+        this.title = title;
+        this.genre = genre;
+        this.rating = rating;
+    }
+
+    public Film() {
+
+    }
 }
