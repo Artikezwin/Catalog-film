@@ -5,6 +5,6 @@ import com.example.springproject.model.Film;
 import java.util.UUID;
 
 public interface FilmService {
-    Film getfilm(UUID filmUuid);
-    Film savefilm(Film film);
+    Film getFilm(UUID filmUuid);
+    Film saveFilm(Film film);
 }

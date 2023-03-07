@@ -18,13 +18,13 @@ public class FilmServiceImpl implements FilmService {
     private final FilmRepository filmRepository;
     @SneakyThrows(ChangeSetPersister.NotFoundException.class)
     @Override
-    public Film getfilm(UUID filmUuid) {
+    public Film getFilm(UUID filmUuid) {
         Optional<Film> filmOptional = filmRepository.findById(filmUuid);
         return filmOptional.orElseThrow(() -> new ChangeSetPersister.NotFoundException());
     }
 
     @Override
-    public Film savefilm(Film film) {
+    public Film saveFilm(Film film) {
         return filmRepository.save(film);
     }
 }

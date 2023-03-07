@@ -14,14 +14,14 @@ import java.util.UUID;
 public class FilmController {
     private final FilmService filmService;
     @PostMapping
-    public ResponseEntity<?> addfilm(@RequestBody Film film) {
-        Film resulFilm = filmService.savefilm(film);
+    public ResponseEntity<Film> addFilm(@RequestBody Film film) {
+        Film resulFilm = filmService.saveFilm(film);
         return ResponseEntity.ok(resulFilm);
     }
 
     @GetMapping
-    public ResponseEntity<?> getfilm(@RequestParam("filmUuid") UUID filmUuid) {
-        Film film = filmService.getfilm(filmUuid);
+    public ResponseEntity<Film> getFilm(@RequestParam("filmUuid") UUID filmUuid) {
+        Film film = filmService.getFilm(filmUuid);
         return ResponseEntity.ok(film);
     }
 }
