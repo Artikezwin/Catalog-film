@@ -8,6 +8,7 @@ import lombok.SneakyThrows;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -20,6 +21,17 @@ public class DirectorServiceImpl implements DirectorService {
     public Director getDirector(UUID directorUuid) {
         Optional<Director> directorOptional = directorRepository.findById(directorUuid);
         return directorOptional.orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+    }
+
+    @Override
+    public List<Director> getAll() {
+        List<Director> directors = directorRepository.findAll();
+        return directors;
+    }
+
+    @Override
+    public void deleteDirector(UUID directorUuid) {
+        directorRepository.deleteById(directorUuid);
     }
 
     @Override

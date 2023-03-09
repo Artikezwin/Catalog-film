@@ -1,6 +1,5 @@
 package com.example.springproject.service.impl;
 
-import com.example.springproject.model.Director;
 import com.example.springproject.model.Film;
 import com.example.springproject.repository.FilmRepository;
 import com.example.springproject.service.FilmService;
@@ -16,6 +15,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class FilmServiceImpl implements FilmService {
     private final FilmRepository filmRepository;
+
     @SneakyThrows(ChangeSetPersister.NotFoundException.class)
     @Override
     public Film getFilm(UUID filmUuid) {
