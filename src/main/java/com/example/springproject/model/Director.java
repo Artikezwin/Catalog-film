@@ -20,4 +20,7 @@ public class Director {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Film> filmList;
 
+    public void addFilm(Film film) {
+        filmList.add(film);
+    }
 }

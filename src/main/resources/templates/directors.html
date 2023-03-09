@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список режиссеров</title>
+</head>
+<body>
+
+
+<table cellpadding="15" border="1">
+    <tr>
+        <th>ID</th>
+        <th>Director</th>
+        <th>Age</th>
+        <th>Country</th>
+        <th>Films</th>
+    </tr>
+    <tr th:each="director : ${listOfDirectors}">
+        <td th:text="${director.uuid}"></td>
+        <td th:text="${director.name}"></td>
+        <td th:text="${director.age}"></td>
+        <td th:text="${director.country}"></td>
+        <td>
+            <ul>
+                <div th:each="film : ${director.filmList}">
+                    <li>
+                        <p th:href="@{get-film/{id}(id=${film.getUuid})}" th:text="${film.toString()}"> Название </p>
+                    </li>
+                </div>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

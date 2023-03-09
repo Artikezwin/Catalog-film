@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление фильма режиссеру</title>
+</head>
+<body>
+<p>Введите информацию о фильме</p>
+<form th:method="POST" th:object="${newFilm}" th:action="@{/add/film-to-director}">
+    <div>
+        <label for="title">Название: </label>
+        <input type="text" th:field="*{title}" id="title">
+        <br>
+
+<!--        <label for="genre">Жанр: </label>-->
+<!--        <input type="text" th:field="*{genre}" id="genre">-->
+<!--        <br>-->
+
+        <label for="rating">Рейтинг: </label>
+        <input type="text" th:field="*{rating}" id="rating">
+        <br>
+
+        <input type="submit" value="Добавить фильм"/>
+    </div>
+</form>
+</body>
+</html>
