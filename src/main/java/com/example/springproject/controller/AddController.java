@@ -30,29 +30,4 @@ public class AddController {
     public ResponseEntity<Director> addDirector(@ModelAttribute("newDirector") Director director) {
         return ResponseEntity.ok(directorService.saveDirector(director));
     }
-
-//    @GetMapping("/film")
-//    public String newFilmToDirector(Model model, @RequestParam UUID directorUuid) {
-//        Director director = directorService.getDirector(directorUuid);
-//        model.addAttribute("newFilm", new Film());
-//        model.addAttribute("director", director);
-//        return "new-film";
-//    }
-//
-//    @PostMapping("/film-to-director")
-//    public ResponseEntity<Film> addNewFilmToDirector(@ModelAttribute("newFilm") Film film, @ModelAttribute("director") Director director) {
-//        Director directorMerged = director;
-//        if (directorMerged.getFilmList() == null) {
-//            directorMerged.setFilmList(
-//                    List.of(
-//                            film
-//                    )
-//            );
-//        } else {
-//            directorMerged.addFilm(film);
-//        }
-//        directorService.deleteDirector(director.getUuid());
-//        directorService.saveDirector(directorMerged);
-//        return ResponseEntity.ok(filmService.saveFilm(film));
-//    }
 }
