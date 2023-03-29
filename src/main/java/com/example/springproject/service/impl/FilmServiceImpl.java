@@ -32,13 +32,11 @@ public class FilmServiceImpl implements FilmService {
     @CircuitBreaker(name = "getFilmList", fallbackMethod = "getFilmListFallback")
     @Override
     public List<Film> getFilmList() {
-
         try {
             Thread.sleep(2000);
         } catch (Exception e) {
             throw new RuntimeException();
         }
-
 
         return filmRepository.findAll();
     }
