@@ -1,0 +1,15 @@
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      sliding-window-type: count_based
+      slidingWindowSize: 1
+      permittedNumberOfCallsInHalfOpenState: 10
+      waitDurationInOpenState: 10000
+      slow-call-rate-threshold: 70 # процент медленных вызовов, чтобы circuit breaker отработал
+      eventConsumerBufferSize: 10
+      slow-call-duration-threshold: 1 # с какого момента вызов считать медленным (одна секунда)
+      registerHealthIndicator: true
+      minimum-number-of-calls: 10 # потолок "медленных вызовов"
+  instances:
+    getFilmList:
+      baseConfig:   default

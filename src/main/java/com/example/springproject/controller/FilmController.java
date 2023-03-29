@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -22,6 +23,12 @@ public class FilmController {
     @GetMapping
     public ResponseEntity<Film> getFilm(@RequestParam("filmUuid") UUID filmUuid) {
         Film film = filmService.getFilm(filmUuid);
+        return ResponseEntity.ok(film);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Film>> getFilms() {
+        List<Film> film = filmService.getFilmList();
         return ResponseEntity.ok(film);
     }
 }
